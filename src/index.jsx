@@ -1,16 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import faker from 'faker';
+import About from './About.jsx';
 
-// const example = () => {
-//   <div>
-//     {faker.name.findName()}
-//   </div>
-// }
 
 
 ReactDOM.render(
-    <h1>Hello, world!</h1>,
+    <About />,
     document.getElementById('root')
   );
   
