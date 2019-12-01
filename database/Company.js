@@ -3,7 +3,7 @@ const db = require('./index.js');
 mongoose.Promise = global.Promise;
 
 var companyInfoSchema = mongoose.Schema({
-    name: String,
+    company: String,
     description: String,
     CEO: String,
     MarketCap: String,

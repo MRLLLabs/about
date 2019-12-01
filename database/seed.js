@@ -7,6 +7,8 @@ var sampleData = function (){
     
     for (var i = 0; i < 100; i++ ) {
         var info = {};
+        var highEnd = '$' + (Math.floor(Math.random() * (800 * 100 - 1 * 100) + 1 * 100) / (1*100)).toString();
+        var lowEnd = '$' + (Math.floor(Math.random() * (100 * 100 - 1 * 100) + 1 * 100) / (1*100)).toString();
         info.company = faker.company.companyName();
         info.description = faker.lorem.paragraphs();
         info.CEO = faker.name.findName();
@@ -17,11 +19,11 @@ var sampleData = function (){
         info.Headquarters = faker.address.city() + ', ' + faker.address.state();
         info.DividendYield = '0.00';
         info.AvgVolume = (Math.floor(Math.random() * (100 * 100 - 1 * 100) + 1 * 100) / (1*100)).toString() + 'M';
-        info.HighToday = '$' + (Math.floor(Math.random() * (800 * 100 - 1 * 100) + 1 * 100) / (1*100)).toString();
-        info.LowToday = '$' + (Math.floor(Math.random() * (100 * 100 - 1 * 100) + 1 * 100) / (1*100)).toString();
-        info.HighYear = '$' + (Math.floor(Math.random() * (800 * 100 - 1 * 100) + 1 * 100) / (1*100)).toString();
-        info.LowYear = '$' + (Math.floor(Math.random() * (100 * 100 - 1 * 100) + 1 * 100) / (1*100)).toString();
-        info.OpenPrice = '$' + (Math.floor(Math.random() * (800 * 100 - 1 * 100) + 1 * 100) / (1*100)).toString();
+        info.HighToday = highEnd;
+        info.LowToday = lowEnd;
+        info.HighYear = highEnd;
+        info.LowYear = lowEnd;
+        info.OpenPrice = highEnd;
         companyInfo.push(info);
     }
     return companyInfo
