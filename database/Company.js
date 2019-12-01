@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
+const db = require('./index.js');
+mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost', {useNewUrlParser: true}).then(() => {
-    console.log("Database connected!")
-});
-
-var companyInfoSchema = new mongoose.Schema({
+var companyInfoSchema = mongoose.Schema({
     name: String,
     description: String,
     CEO: String,
@@ -21,5 +19,9 @@ var companyInfoSchema = new mongoose.Schema({
     Founded: Number,
     AvgVolume: String,
     Volume: String,
-    
 })
+
+
+var Company = mongoose.model('Company', companyInfoSchema);
+
+module.exports = Company;
