@@ -2,9 +2,16 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
 
+const changeColor = () => {
+    var colors = [`#21CE99`, `#F45531`];
+    return colors[Math.round(Math.random() * (1 - 0) + 0)]
+}
+
+const color = changeColor();
+
 const Wrapper = styled.div`
 padding: 4em;
-background: #222;
+background: #1B1B1D;
 display: grid;
 `;
 
@@ -35,7 +42,7 @@ font-size: 13px;
 const InfoTextCEO = styled.div`
 margin-right: 10px;
 margin-bottom: 30px;
-color: #21CE99;
+color: ${color};
 font-family: 'DINPro-Medium';
 font-size: 13px;
 `;
@@ -49,7 +56,7 @@ font-size: 24px;
 const Show = styled.div`
 float: right;
 padding-top: 10px;
-color: #21CE99;
+color: ${color};
 font-family: 'DINPro-Medium';
 font-size: 13px;
 `;
@@ -74,9 +81,8 @@ font-size: 16px;
 const Read = styled.span`
 font-family: 'DINPro-Medium';
 font-size: 13px;
-color: #21CE99;
+color: ${color};
 `;
-
 
 class About extends React.Component {
   constructor() {
@@ -91,7 +97,7 @@ class About extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/about/5de3822446d826141529bb01').then((response) => {
+    axios.get('/about/5de5f2dc4854c32aef5ef3ce').then((response) => {
         this.setState({currentData: response.data})
         console.log(response.data)
     }).catch((err) => {
@@ -162,7 +168,7 @@ class About extends React.Component {
         <GridItem><InfoTitle>High Today</InfoTitle><InfoText>{this.state.currentData.HighToday}</InfoText></GridItem>
         <GridItem><InfoTitle>Low Today</InfoTitle><InfoText>{this.state.currentData.LowToday}</InfoText></GridItem>
         <GridItem><InfoTitle>Open Price</InfoTitle><InfoText>{this.state.currentData.OpenPrice}</InfoText></GridItem>
-        <GridItem><InfoTitle>Volume</InfoTitle><InfoText>Add Volume</InfoText></GridItem>
+        <GridItem><InfoTitle>Volume</InfoTitle><InfoText>{this.state.currentData.Volume}</InfoText></GridItem>
         <GridItem><InfoTitle>52 Week High</InfoTitle><InfoText>{this.state.currentData.HighYear}</InfoText></GridItem>
         <GridItem><InfoTitle>52 Week Low</InfoTitle><InfoText>{this.state.currentData.LowYear}</InfoText></GridItem>
         </GridContainer>
@@ -180,26 +186,3 @@ class About extends React.Component {
 
 
 export default About;
-
-{/* <Wrapper>
-             <span><AboutTitle>About</AboutTitle> <Show>Show More</Show></span>
-             <LineBreak />
-             <AboutText>{this.state.currentData.description}<Read> Read More</Read></AboutText>
-             
-             <GridContainer>
-             <GridItem><InfoTitle>CEO</InfoTitle><InfoTextCEO>{this.state.currentData.CEO}</InfoTextCEO></GridItem>
-             <GridItem><InfoTitle>Employees</InfoTitle><InfoText>{this.state.currentData.EmployeeCount}</InfoText></GridItem>
-             <GridItem><InfoTitle>Headquarters</InfoTitle><InfoText>{this.state.currentData.Headquarters}</InfoText></GridItem>
-             <GridItem><InfoTitle>Founded</InfoTitle><InfoText>{this.state.currentData.Founded}</InfoText></GridItem>
-             <GridItem><InfoTitle>Market Cap</InfoTitle><InfoText>{this.state.currentData.MarketCap}</InfoText></GridItem>
-             <GridItem><InfoTitle>Price-Earnings Ratio</InfoTitle><InfoText>{this.state.currentData.EarningsRatio}</InfoText></GridItem>
-             <GridItem><InfoTitle>Dividend Yield</InfoTitle><InfoText>{this.state.currentData.DividentYield}</InfoText></GridItem>
-             <GridItem><InfoTitle>Average Volume</InfoTitle><InfoText>{this.state.currentData.AvgVolume}</InfoText></GridItem>
-             <GridItem><InfoTitle>High Today</InfoTitle><InfoText>{this.state.currentData.HighToday}</InfoText></GridItem>
-             <GridItem><InfoTitle>Low Today</InfoTitle><InfoText>{this.state.currentData.LowToday}</InfoText></GridItem>
-             <GridItem><InfoTitle>Open Price</InfoTitle><InfoText>{this.state.currentData.OpenPrice}</InfoText></GridItem>
-             <GridItem><InfoTitle>Volume</InfoTitle><InfoText>Add Volume</InfoText></GridItem>
-             <GridItem><InfoTitle>52 Week High</InfoTitle><InfoText>{this.state.currentData.HighYear}</InfoText></GridItem>
-             <GridItem><InfoTitle>52 Week Low</InfoTitle><InfoText>{this.state.currentData.LowYear}</InfoText></GridItem>
-             </GridContainer>
-             </Wrapper> */}

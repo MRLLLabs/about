@@ -24,6 +24,7 @@ var sampleData = function (){
         info.HighYear = highEnd;
         info.LowYear = lowEnd;
         info.OpenPrice = highEnd;
+        info.Volume = (Math.floor(Math.random() * (100 * 100 - 1 * 100) + 1 * 100) / (1*100)).toString() + 'M';
         companyInfo.push(info);
     }
     return companyInfo
