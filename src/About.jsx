@@ -1,4 +1,5 @@
 import React from 'react';
+import Collections from './Collections.jsx';
 import axios from 'axios';
 import styled from 'styled-components'
 
@@ -33,7 +34,7 @@ font-size: 13px;
 
 const InfoText = styled.div`
 margin-right: 10px;
-margin-bottom: 30px;
+margin-bottom: 10px;
 color: #ffffff;
 font-family: 'DINPro-Regular';
 font-size: 13px;
@@ -41,7 +42,7 @@ font-size: 13px;
 
 const InfoTextCEO = styled.div`
 margin-right: 10px;
-margin-bottom: 30px;
+margin-bottom: 10px;
 color: ${color};
 font-family: 'DINPro-Medium';
 font-size: 13px;
@@ -90,13 +91,15 @@ class About extends React.Component {
       this.state = {
           readMore: false,
           showMore: false,
-          currentData: {}
+          currentData: {},
+          color: color
       }
       this.showClicked = this.showClicked.bind(this);
       this.readClicked = this.readClicked.bind(this);
   }
 
   componentDidMount() {
+      console.log(this.state.color)
     axios.get('/about/5de5fe590fc0ce2badce0a42').then((response) => {
         this.setState({currentData: response.data})
         console.log(response.data)
@@ -134,45 +137,51 @@ class About extends React.Component {
     
       if (!this.state.showMore) {
           return (
-            <Wrapper>
-             <span><AboutTitle>About</AboutTitle> <Show onClick={this.showClicked}>Show More</Show></span>
-             <LineBreak />
-             {this.read()}
-             <GridContainer>
-             <GridItem><InfoTitle>CEO</InfoTitle><InfoTextCEO>{this.state.currentData.CEO}</InfoTextCEO></GridItem>
-             <GridItem><InfoTitle>Employees</InfoTitle><InfoText>{this.state.currentData.EmployeeCount}</InfoText></GridItem>
-             <GridItem><InfoTitle>Headquarters</InfoTitle><InfoText>{this.state.currentData.Headquarters}</InfoText></GridItem>
-             <GridItem><InfoTitle>Founded</InfoTitle><InfoText>{this.state.currentData.Founded}</InfoText></GridItem>
-             <GridItem><InfoTitle>Market Cap</InfoTitle><InfoText>{this.state.currentData.MarketCap}</InfoText></GridItem>
-             <GridItem><InfoTitle>Price-Earnings Ratio</InfoTitle><InfoText>{this.state.currentData.EarningsRatio}</InfoText></GridItem>
-             <GridItem><InfoTitle>Dividend Yield</InfoTitle><InfoText>{this.state.currentData.DividendYield}</InfoText></GridItem>
-             <GridItem><InfoTitle>Average Volume</InfoTitle><InfoText>{this.state.currentData.AvgVolume}</InfoText></GridItem>
-             </GridContainer>
-             </Wrapper>
+              <div>
+                  <Wrapper>
+                   <span><AboutTitle>About</AboutTitle> <Show onClick={this.showClicked}>Show More</Show></span>
+                   <LineBreak />
+                   {this.read()}
+                   <GridContainer>
+                   <GridItem><InfoTitle>CEO</InfoTitle><InfoTextCEO>{this.state.currentData.CEO}</InfoTextCEO></GridItem>
+                   <GridItem><InfoTitle>Employees</InfoTitle><InfoText>{this.state.currentData.EmployeeCount}</InfoText></GridItem>
+                   <GridItem><InfoTitle>Headquarters</InfoTitle><InfoText>{this.state.currentData.Headquarters}</InfoText></GridItem>
+                   <GridItem><InfoTitle>Founded</InfoTitle><InfoText>{this.state.currentData.Founded}</InfoText></GridItem>
+                   <GridItem><InfoTitle>Market Cap</InfoTitle><InfoText>{this.state.currentData.MarketCap}</InfoText></GridItem>
+                   <GridItem><InfoTitle>Price-Earnings Ratio</InfoTitle><InfoText>{this.state.currentData.EarningsRatio}</InfoText></GridItem>
+                   <GridItem><InfoTitle>Dividend Yield</InfoTitle><InfoText>{this.state.currentData.DividendYield}</InfoText></GridItem>
+                   <GridItem><InfoTitle>Average Volume</InfoTitle><InfoText>{this.state.currentData.AvgVolume}</InfoText></GridItem>
+                   </GridContainer>
+                   </Wrapper>
+                   <Collections color={this.state.color}/>
+              </div>
           )
       } else {
         return (
-        <Wrapper>
-        <span><AboutTitle>About</AboutTitle> <Show onClick={this.showClicked}>Show Less</Show></span>
-        <LineBreak />
-        {this.read()}
-        <GridContainer>
-        <GridItem><InfoTitle>CEO</InfoTitle><InfoTextCEO>{this.state.currentData.CEO}</InfoTextCEO></GridItem>
-        <GridItem><InfoTitle>Employees</InfoTitle><InfoText>{this.state.currentData.EmployeeCount}</InfoText></GridItem>
-        <GridItem><InfoTitle>Headquarters</InfoTitle><InfoText>{this.state.currentData.Headquarters}</InfoText></GridItem>
-        <GridItem><InfoTitle>Founded</InfoTitle><InfoText>{this.state.currentData.Founded}</InfoText></GridItem>
-        <GridItem><InfoTitle>Market Cap</InfoTitle><InfoText>{this.state.currentData.MarketCap}</InfoText></GridItem>
-        <GridItem><InfoTitle>Price-Earnings Ratio</InfoTitle><InfoText>{this.state.currentData.EarningsRatio}</InfoText></GridItem>
-        <GridItem><InfoTitle>Dividend Yield</InfoTitle><InfoText>{this.state.currentData.DividendYield}</InfoText></GridItem>
-        <GridItem><InfoTitle>Average Volume</InfoTitle><InfoText>{this.state.currentData.AvgVolume}</InfoText></GridItem>
-        <GridItem><InfoTitle>High Today</InfoTitle><InfoText>{this.state.currentData.HighToday}</InfoText></GridItem>
-        <GridItem><InfoTitle>Low Today</InfoTitle><InfoText>{this.state.currentData.LowToday}</InfoText></GridItem>
-        <GridItem><InfoTitle>Open Price</InfoTitle><InfoText>{this.state.currentData.OpenPrice}</InfoText></GridItem>
-        <GridItem><InfoTitle>Volume</InfoTitle><InfoText>{this.state.currentData.Volume}</InfoText></GridItem>
-        <GridItem><InfoTitle>52 Week High</InfoTitle><InfoText>{this.state.currentData.HighYear}</InfoText></GridItem>
-        <GridItem><InfoTitle>52 Week Low</InfoTitle><InfoText>{this.state.currentData.LowYear}</InfoText></GridItem>
-        </GridContainer>
-        </Wrapper>
+        <div>
+            <Wrapper>
+            <span><AboutTitle>About</AboutTitle> <Show onClick={this.showClicked}>Show Less</Show></span>
+            <LineBreak />
+            {this.read()}
+            <GridContainer>
+            <GridItem><InfoTitle>CEO</InfoTitle><InfoTextCEO>{this.state.currentData.CEO}</InfoTextCEO></GridItem>
+            <GridItem><InfoTitle>Employees</InfoTitle><InfoText>{this.state.currentData.EmployeeCount}</InfoText></GridItem>
+            <GridItem><InfoTitle>Headquarters</InfoTitle><InfoText>{this.state.currentData.Headquarters}</InfoText></GridItem>
+            <GridItem><InfoTitle>Founded</InfoTitle><InfoText>{this.state.currentData.Founded}</InfoText></GridItem>
+            <GridItem><InfoTitle>Market Cap</InfoTitle><InfoText>{this.state.currentData.MarketCap}</InfoText></GridItem>
+            <GridItem><InfoTitle>Price-Earnings Ratio</InfoTitle><InfoText>{this.state.currentData.EarningsRatio}</InfoText></GridItem>
+            <GridItem><InfoTitle>Dividend Yield</InfoTitle><InfoText>{this.state.currentData.DividendYield}</InfoText></GridItem>
+            <GridItem><InfoTitle>Average Volume</InfoTitle><InfoText>{this.state.currentData.AvgVolume}</InfoText></GridItem>
+            <GridItem><InfoTitle>High Today</InfoTitle><InfoText>{this.state.currentData.HighToday}</InfoText></GridItem>
+            <GridItem><InfoTitle>Low Today</InfoTitle><InfoText>{this.state.currentData.LowToday}</InfoText></GridItem>
+            <GridItem><InfoTitle>Open Price</InfoTitle><InfoText>{this.state.currentData.OpenPrice}</InfoText></GridItem>
+            <GridItem><InfoTitle>Volume</InfoTitle><InfoText>{this.state.currentData.Volume}</InfoText></GridItem>
+            <GridItem><InfoTitle>52 Week High</InfoTitle><InfoText>{this.state.currentData.HighYear}</InfoText></GridItem>
+            <GridItem><InfoTitle>52 Week Low</InfoTitle><InfoText>{this.state.currentData.LowYear}</InfoText></GridItem>
+            </GridContainer>
+            </Wrapper>
+            <Collections color={this.state.color} />
+        </div>
         )
       }
   }
