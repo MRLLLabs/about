@@ -97,7 +97,7 @@ class About extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/about/5de5f2dc4854c32aef5ef3ce').then((response) => {
+    axios.get('/about/5de5fe590fc0ce2badce0a42').then((response) => {
         this.setState({currentData: response.data})
         console.log(response.data)
     }).catch((err) => {
@@ -145,7 +145,7 @@ class About extends React.Component {
              <GridItem><InfoTitle>Founded</InfoTitle><InfoText>{this.state.currentData.Founded}</InfoText></GridItem>
              <GridItem><InfoTitle>Market Cap</InfoTitle><InfoText>{this.state.currentData.MarketCap}</InfoText></GridItem>
              <GridItem><InfoTitle>Price-Earnings Ratio</InfoTitle><InfoText>{this.state.currentData.EarningsRatio}</InfoText></GridItem>
-             <GridItem><InfoTitle>Dividend Yield</InfoTitle><InfoText>{this.state.currentData.DividentYield}</InfoText></GridItem>
+             <GridItem><InfoTitle>Dividend Yield</InfoTitle><InfoText>{this.state.currentData.DividendYield}</InfoText></GridItem>
              <GridItem><InfoTitle>Average Volume</InfoTitle><InfoText>{this.state.currentData.AvgVolume}</InfoText></GridItem>
              </GridContainer>
              </Wrapper>
@@ -163,7 +163,7 @@ class About extends React.Component {
         <GridItem><InfoTitle>Founded</InfoTitle><InfoText>{this.state.currentData.Founded}</InfoText></GridItem>
         <GridItem><InfoTitle>Market Cap</InfoTitle><InfoText>{this.state.currentData.MarketCap}</InfoText></GridItem>
         <GridItem><InfoTitle>Price-Earnings Ratio</InfoTitle><InfoText>{this.state.currentData.EarningsRatio}</InfoText></GridItem>
-        <GridItem><InfoTitle>Dividend Yield</InfoTitle><InfoText>{this.state.currentData.DividentYield}</InfoText></GridItem>
+        <GridItem><InfoTitle>Dividend Yield</InfoTitle><InfoText>{this.state.currentData.DividendYield}</InfoText></GridItem>
         <GridItem><InfoTitle>Average Volume</InfoTitle><InfoText>{this.state.currentData.AvgVolume}</InfoText></GridItem>
         <GridItem><InfoTitle>High Today</InfoTitle><InfoText>{this.state.currentData.HighToday}</InfoText></GridItem>
         <GridItem><InfoTitle>Low Today</InfoTitle><InfoText>{this.state.currentData.LowToday}</InfoText></GridItem>
