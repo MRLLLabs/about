@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1575259750437" clover="3.2.0">
-  <project timestamp="1575259750437" name="All files">
+<coverage generated="1575318859167" clover="3.2.0">
+  <project timestamp="1575318859167" name="All files">
     <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="10" coveredelements="10" complexity="0" loc="10" ncloc="10" packages="1" files="2" classes="2"/>
     <file name="Company.js" path="/Users/kellywillard/hrsf124/Robinhood/RobinHood-About/database/Company.js">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
