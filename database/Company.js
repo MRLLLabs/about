@@ -5,6 +5,7 @@ mongoose.Promise = global.Promise;
 var companyInfoSchema = mongoose.Schema({
     company: String,
     description: String,
+    adjectives: String,
     CEO: String,
     MarketCap: String,
     HighToday: String,

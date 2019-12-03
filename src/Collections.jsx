@@ -43,20 +43,30 @@ margin-bottom: 25px;
 padding: 0;
 `;
 
-const CollectionContainter = styled.div`
+var CollectionContainer = styled.div`
+display: inline-block;
+`;
+
+var Collection = styled.span`
+display:inline-block;
 border-radius: 25px;
 background: ${containerColor};
 padding: 8px; 
-text-align:center;
+text-align: center;
 height: 15px;
-width: 100px
-`;
-
-const Collection = styled.div`
+width: fit-content;
+margin-bottom: 10px;
+margin-left: 8px;
+margin-right: 8px;
 color: ${color};
 font-family: 'DINPro-Medium';
 font-size: 13px;
+:hover {
+    background: ${color};
+    color: black
+}
 `;
+
 
 
 class Collections extends React.Component {
@@ -64,12 +74,22 @@ class Collections extends React.Component {
       super(props);
   }
 
+  collectionList() {
+      if (this.props.adj) {
+        return this.props.adj.map((word) => {
+            return (
+              <Collection>{word}</Collection>
+            )
+        })
+      }
+  }
+
   render() {
       return (
           <Wrapper>
               <CollectionsTitle>Collections</CollectionsTitle>
               <LineBreak />
-              <CollectionContainter><Collection>Social Media</Collection></CollectionContainter>
+              <CollectionContainer>{this.collectionList()}</CollectionContainer>
           </Wrapper>
       )
   }

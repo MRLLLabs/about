@@ -2,7 +2,17 @@ const db = require('./index.js');
 const Company = require('./Company.js');
 const faker = require('faker');
 
-var sampleData = function (){
+var sampleAdjectives = function () {
+    var words = [];
+    for (var i = 0; i < Math.floor(Math.random() * (9-3) + 3); i++) {
+    var word = faker.commerce.productAdjective();
+    if (!words.includes(word)) {
+        words.push(word)}
+    }
+    return JSON.stringify(words);
+}
+
+var sampleData = function () {
     var companyInfo = [];
     
     for (var i = 0; i < 100; i++ ) {
@@ -11,6 +21,7 @@ var sampleData = function (){
         var lowEnd = '$' + (Math.floor(Math.random() * (100 * 100 - 1 * 100) + 1 * 100) / (1*100)).toString();
         info.company = faker.company.companyName();
         info.description = faker.lorem.paragraphs();
+        info.adjectives = sampleAdjectives();
         info.CEO = faker.name.findName();
         info.MarketCap = (Math.floor(Math.random() * (100 * 100 - 1 * 100) + 1 * 100) / (1*100)).toString() + 'M';
         info.EmployeeCount = Math.round(Math.random() * (150000 - 100) + 100);

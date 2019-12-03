@@ -100,9 +100,11 @@ class About extends React.Component {
 
   componentDidMount() {
       console.log(this.state.color)
-    axios.get('/about/5de5fe590fc0ce2badce0a42').then((response) => {
+    axios.get('/about/5de6414ac440ca30bd517220').then((response) => {
+        response.data.adjectives = JSON.parse(response.data.adjectives);
         this.setState({currentData: response.data})
         console.log(response.data)
+        console.log(response.data.description)
     }).catch((err) => {
         console.log(err)
     })
@@ -153,7 +155,7 @@ class About extends React.Component {
                    <GridItem><InfoTitle>Average Volume</InfoTitle><InfoText>{this.state.currentData.AvgVolume}</InfoText></GridItem>
                    </GridContainer>
                    </Wrapper>
-                   <Collections color={this.state.color}/>
+                   <Collections color={this.state.color} adj={this.state.currentData.adjectives}/>
               </div>
           )
       } else {
@@ -180,7 +182,7 @@ class About extends React.Component {
             <GridItem><InfoTitle>52 Week Low</InfoTitle><InfoText>{this.state.currentData.LowYear}</InfoText></GridItem>
             </GridContainer>
             </Wrapper>
-            <Collections color={this.state.color} />
+            <Collections color={this.state.color} adj={this.state.currentData.adjectives}/>
         </div>
         )
       }
