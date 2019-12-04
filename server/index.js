@@ -3,7 +3,6 @@ const app = express()
 const port = 3000
 const path = require('path');
 const bodyParser = require('body-parser');
-const axios = require('axios');
 const Company = require('../database/Company.js')
 
 app.use('/', express.static(path.join(__dirname, '../dist')));
