@@ -27,17 +27,17 @@ describe('About', () => {
         "OpenPrice" : "$599.45"
         };
 
-    it('displays title of the section', () => {
+    it('should display the title of the section', () => {
         const wrapper = shallow(<About />, { disableLifecycleMethods: true });
         expect(wrapper.containsMatchingElement('About')).toBe(true);
     })
 
-    it('readMore state is false when component first renders', () => {
+    it('should have readMore state set to false when component first renders', () => {
         const wrapper = mount(<About />);
         expect(wrapper.state().readMore).toBe(false);
     })
 
-    it('readMore state value is true when Read More is clicked', () => {
+    it('should have readMore state set to true when Read More is clicked', () => {
         const wrapper = mount(<About />);
         wrapper.setState({
           readMore: false,
@@ -48,7 +48,7 @@ describe('About', () => {
         expect(wrapper.state().readMore).toBe(true);
     })
 
-    it('showMore state value is true when Show More is clicked', () => {
+    it('should have showMore state set to true when Show More is clicked', () => {
         const wrapper = mount(<About />);
         wrapper.setState({
             readMore: false,
@@ -59,7 +59,7 @@ describe('About', () => {
           expect(wrapper.state().showMore).toBe(true);
     })
 
-    it('additional company information about the company is rendered when About More is clicked', () => {
+    it('should render additional company information about the company when About More is clicked', () => {
         const wrapper = mount(<About />);
         wrapper.setState({
             readMore: false,
@@ -72,7 +72,7 @@ describe('About', () => {
           expect(before === after).toBe(false);
     })
 
-    it('additional company information is rendered when Show More is clicked', () => {
+    it('should render additional company information when Show More is clicked', () => {
         const wrapper = mount(<About />);
         wrapper.setState({
             readMore: false,
