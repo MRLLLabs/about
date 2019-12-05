@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Company = require('../database/Company.js');
 require("@babel/polyfill");
 
-const companyData = {"description" : "Quae eum quod. Repellat qui est recusandae quos laudantium illo dignissimos. Aut sunt voluptatem. Rerum labore ab et dignissimos et qui illo vel nihil.\n \rDolor nesciunt vel et laboriosam est praesentium aut laboriosam sit. Aut eligendi doloribus. Provident illum eligendi iste repudiandae aliquid quis. Ut optio culpa soluta commodi. Assumenda impedit est. Consequatur et perferendis dolorem eaque nulla.\n \rReprehenderit eum saepe voluptas voluptas aut natus ea eum. Ducimus reiciendis eius voluptatem molestias modi quas sequi. Unde dolore non ut facere error ut.", 
+const companyData = {
+"description" : "Quae eum quod. Repellat qui est recusandae quos laudantium illo dignissimos. Aut sunt voluptatem. Rerum labore ab et dignissimos et qui illo vel nihil.\n \rDolor nesciunt vel et laboriosam est praesentium aut laboriosam sit. Aut eligendi doloribus. Provident illum eligendi iste repudiandae aliquid quis. Ut optio culpa soluta commodi. Assumenda impedit est. Consequatur et perferendis dolorem eaque nulla.\n \rReprehenderit eum saepe voluptas voluptas aut natus ea eum. Ducimus reiciendis eius voluptatem molestias modi quas sequi. Unde dolore non ut facere error ut.", 
 "CEO" : "Rowland Rodriguez", 
 "MarketCap" : "47.91M", 
 "EmployeeCount" : 14535, 

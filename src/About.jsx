@@ -17,14 +17,11 @@ class About extends React.Component {
   }
 
   componentDidMount() {
-      console.log(this.state.color)
     axios.get('/about/5de6414ac440ca30bd517220').then((response) => {
         response.data.adjectives = JSON.parse(response.data.adjectives);
         this.setState({currentData: response.data})
-        console.log(response.data)
-        console.log(response.data.description)
     }).catch((err) => {
-        console.log(err)
+        
     })
   }
 
@@ -34,14 +31,13 @@ class About extends React.Component {
   
   readClicked() {
     this.setState({readMore: !this.state.readMore})
-    console.log(this.state.readMore)
   }
 
   read() {
       if(!this.state.readMore) {
           if(this.state.currentData.description) {
               return(
-                <AboutStyle.AboutText>{this.state.currentData.description.split('.').splice(0,5).join('.')}. <AboutStyle.Read className="read-more" onClick={this.readClicked}>Read More</AboutStyle.Read></AboutStyle.AboutText>
+                <AboutStyle.AboutText>{this.state.currentData.description.split('.').splice(0,5).join('.')}. <AboutStyle.Read onClick={this.readClicked}>Read More</AboutStyle.Read></AboutStyle.AboutText>
               )
           } else {
               return(
@@ -50,7 +46,7 @@ class About extends React.Component {
           }
       } else {
           return(
-            <AboutStyle.AboutText>{this.state.currentData.description}<AboutStyle.Read className="read-more" onClick={this.readClicked}> Read Less</AboutStyle.Read></AboutStyle.AboutText>
+            <AboutStyle.AboutText>{this.state.currentData.description}<AboutStyle.Read onClick={this.readClicked}> Read Less</AboutStyle.Read></AboutStyle.AboutText>
           )
       }
   }

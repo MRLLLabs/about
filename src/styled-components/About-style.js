@@ -78,9 +78,7 @@ font-family: 'DINPro-Regular';
 font-size: 16px;
 `;
 
-AboutStyle.Read = styled.span.attrs(props => ({
-    className: "read-more",
-}))`
+AboutStyle.Read = styled.span`
 font-family: 'DINPro-Medium';
 font-size: 13px;
 color: ${AboutStyle.color};
