@@ -10,17 +10,17 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('Collection', () => {
     const adj = ['Social Media', 'News', 'Trending', 'Top 100'];
 
-    it('should display title of the section', () => {
+    it('displays title of the section', () => {
         const wrapper = shallow(<Collections />);
         expect(wrapper.containsMatchingElement('Collections')).toBe(true);
     })
 
-    it('should render adjectives to screen', () => {
+    it('renders adjectives to screen', () => {
         const wrapper = shallow(<Collections adj={adj} />);
         expect(wrapper.find(CollectionsStyle.CollectionContainer).children().length > 0).toBe(true)
     })
 
-    it('should render all of the adjectives to the screen', () => {
+    it('renders all of the adjectives to the screen', () => {
         const wrapper = shallow(<Collections adj={adj} />);
         expect(wrapper.find(CollectionsStyle.CollectionContainer).children().length).toBe(4)
     })
