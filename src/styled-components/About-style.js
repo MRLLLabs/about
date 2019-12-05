@@ -2,13 +2,6 @@ import styled from 'styled-components'
 
 const AboutStyle = {}
 
-AboutStyle.changeColor = () => {
-    var colors = [`#21CE99`, `#F45531`];
-    return colors[Math.round(Math.random() * (1 - 0) + 0)]
-}
-
-AboutStyle.color = AboutStyle.changeColor();
-
 AboutStyle.Wrapper = styled.div`
 padding: 4em;
 background: #1B1B1D;
@@ -42,7 +35,6 @@ font-size: 13px;
 AboutStyle.InfoTextCEO = styled.div`
 margin-right: 10px;
 margin-bottom: 10px;
-color: ${AboutStyle.color};
 font-family: 'DINPro-Medium';
 font-size: 13px;
 `;
@@ -56,7 +48,6 @@ font-size: 26px;
 AboutStyle.Show = styled.div`
 float: right;
 padding-top: 10px;
-color: ${AboutStyle.color};
 font-family: 'DINPro-Medium';
 font-size: 13px;
 `;
@@ -81,7 +72,6 @@ font-size: 16px;
 AboutStyle.Read = styled.span`
 font-family: 'DINPro-Medium';
 font-size: 13px;
-color: ${AboutStyle.color};
 `;
 
 export default AboutStyle;

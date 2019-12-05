@@ -10,13 +10,27 @@ class About extends React.Component {
           readMore: false,
           showMore: false,
           currentData: {},
-          color: AboutStyle.color
+          color: '',
+          containerColor: '',
       }
       this.showClicked = this.showClicked.bind(this);
       this.readClicked = this.readClicked.bind(this);
   }
 
+  changeColor() {
+    var colors = [`#21CE99`, `#F45531`];
+    var color = colors[Math.round(Math.random() * (1 - 0) + 0)];
+    this.setState({color: color}); 
+    if (color === `#21CE99`) {
+        this.setState({containerColor: `rgb(33, 206, 153, .1)`}) 
+    } else {
+        this.setState({containerColor: `rgb(244, 85, 49, .1)`}) 
+    }
+}
+
+
   componentDidMount() {
+    this.changeColor();
     axios.get('/about/5de6414ac440ca30bd517220').then((response) => {
         response.data.adjectives = JSON.parse(response.data.adjectives);
         this.setState({currentData: response.data})
@@ -37,7 +51,7 @@ class About extends React.Component {
       if(!this.state.readMore) {
           if(this.state.currentData.description) {
               return(
-                <AboutStyle.AboutText>{this.state.currentData.description.split('.').splice(0,5).join('.')}. <AboutStyle.Read onClick={this.readClicked}>Read More</AboutStyle.Read></AboutStyle.AboutText>
+                <AboutStyle.AboutText>{this.state.currentData.description.split('.').splice(0,5).join('.')}. <AboutStyle.Read onClick={this.readClicked} style={{color: this.state.color}}>Read More</AboutStyle.Read></AboutStyle.AboutText>
               )
           } else {
               return(
@@ -46,7 +60,7 @@ class About extends React.Component {
           }
       } else {
           return(
-            <AboutStyle.AboutText>{this.state.currentData.description}<AboutStyle.Read onClick={this.readClicked}> Read Less</AboutStyle.Read></AboutStyle.AboutText>
+            <AboutStyle.AboutText>{this.state.currentData.description}<AboutStyle.Read onClick={this.readClicked} style={{color: this.state.color}}> Read Less</AboutStyle.Read></AboutStyle.AboutText>
           )
       }
   }
@@ -56,11 +70,11 @@ class About extends React.Component {
           return (
               <div>
                   <AboutStyle.Wrapper>
-                   <span><AboutStyle.AboutTitle>About</AboutStyle.AboutTitle> <AboutStyle.Show onClick={this.showClicked}>Show More</AboutStyle.Show></span>
+                   <span><AboutStyle.AboutTitle>About</AboutStyle.AboutTitle> <AboutStyle.Show onClick={this.showClicked} style={{color: this.state.color}}>Show More</AboutStyle.Show></span>
                    <AboutStyle.LineBreak />
                    {this.read()}
                    <AboutStyle.GridContainer>
-                   <AboutStyle.GridItem><AboutStyle.InfoTitle>CEO</AboutStyle.InfoTitle><AboutStyle.InfoTextCEO>{this.state.currentData.CEO}</AboutStyle.InfoTextCEO></AboutStyle.GridItem>
+                   <AboutStyle.GridItem><AboutStyle.InfoTitle>CEO</AboutStyle.InfoTitle><AboutStyle.InfoTextCEO style={{color: this.state.color}}>{this.state.currentData.CEO}</AboutStyle.InfoTextCEO></AboutStyle.GridItem>
                    <AboutStyle.GridItem><AboutStyle.InfoTitle>Employees</AboutStyle.InfoTitle><AboutStyle.InfoText>{this.state.currentData.EmployeeCount}</AboutStyle.InfoText></AboutStyle.GridItem>
                    <AboutStyle.GridItem><AboutStyle.InfoTitle>Headquarters</AboutStyle.InfoTitle><AboutStyle.InfoText>{this.state.currentData.Headquarters}</AboutStyle.InfoText></AboutStyle.GridItem>
                    <AboutStyle.GridItem><AboutStyle.InfoTitle>Founded</AboutStyle.InfoTitle><AboutStyle.InfoText>{this.state.currentData.Founded}</AboutStyle.InfoText></AboutStyle.GridItem>
@@ -70,18 +84,18 @@ class About extends React.Component {
                    <AboutStyle.GridItem><AboutStyle.InfoTitle>Average Volume</AboutStyle.InfoTitle><AboutStyle.InfoText>{this.state.currentData.AvgVolume}</AboutStyle.InfoText></AboutStyle.GridItem>
                    </AboutStyle.GridContainer>
                    </AboutStyle.Wrapper>
-                   <Collections color={this.state.color} adj={this.state.currentData.adjectives}/>
+                   <Collections color={this.state.color} container={this.state.containerColor} adj={this.state.currentData.adjectives}/>
               </div>
           )
       } else {
         return (
         <div>
             <AboutStyle.Wrapper>
-            <span><AboutStyle.AboutTitle>About</AboutStyle.AboutTitle> <AboutStyle.Show onClick={this.showClicked}>Show Less</AboutStyle.Show></span>
+            <span><AboutStyle.AboutTitle>About</AboutStyle.AboutTitle> <AboutStyle.Show onClick={this.showClicked} style={{color: this.state.color}}>Show Less</AboutStyle.Show></span>
             <AboutStyle.LineBreak />
             {this.read()}
             <AboutStyle.GridContainer>
-            <AboutStyle.GridItem><AboutStyle.InfoTitle>CEO</AboutStyle.InfoTitle><AboutStyle.InfoTextCEO>{this.state.currentData.CEO}</AboutStyle.InfoTextCEO></AboutStyle.GridItem>
+            <AboutStyle.GridItem><AboutStyle.InfoTitle>CEO</AboutStyle.InfoTitle><AboutStyle.InfoTextCEO style={{color: this.state.color}}>{this.state.currentData.CEO}</AboutStyle.InfoTextCEO></AboutStyle.GridItem>
             <AboutStyle.GridItem><AboutStyle.InfoTitle>Employees</AboutStyle.InfoTitle><AboutStyle.InfoText>{this.state.currentData.EmployeeCount}</AboutStyle.InfoText></AboutStyle.GridItem>
             <AboutStyle.GridItem><AboutStyle.InfoTitle>Headquarters</AboutStyle.InfoTitle><AboutStyle.InfoText>{this.state.currentData.Headquarters}</AboutStyle.InfoText></AboutStyle.GridItem>
             <AboutStyle.GridItem><AboutStyle.InfoTitle>Founded</AboutStyle.InfoTitle><AboutStyle.InfoText>{this.state.currentData.Founded}</AboutStyle.InfoText></AboutStyle.GridItem>
@@ -97,7 +111,7 @@ class About extends React.Component {
             <AboutStyle.GridItem><AboutStyle.InfoTitle>52 Week Low</AboutStyle.InfoTitle><AboutStyle.InfoText>{this.state.currentData.LowYear}</AboutStyle.InfoText></AboutStyle.GridItem>
             </AboutStyle.GridContainer>
             </AboutStyle.Wrapper>
-            <Collections color={this.state.color} adj={this.state.currentData.adjectives}/>
+            <Collections color={this.state.color} container={this.state.containerColor} adj={this.state.currentData.adjectives}/>
         </div>
         )
       }
