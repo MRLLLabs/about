@@ -12,10 +12,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/about/:id', function(req, res) {
     var id = req.params.id;
-   Company.findById(id, (err, result) => {
+   Company.findOne({id: id}, (err, result) => {
        if (err) {
            console.log(err)
        } else {
+           console.log(result)
            res.send(result);
        }
    })

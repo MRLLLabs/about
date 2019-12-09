@@ -11,6 +11,7 @@ class Collections extends React.Component {
   }
 
   mouseOn(e) {
+    e.target.style.cursor = 'pointer';
     e.target.style.color = 'black';
     if (this.props.color === `#21CE99`) {
       e.target.style.background = `#21CE99`

@@ -17,6 +17,7 @@ var sampleData = function () {
     
     for (var i = 0; i < 100; i++ ) {
         var info = {};
+        info.id = i;
         var highEnd = '$' + (Math.floor(Math.random() * (800 * 100 - 1 * 100) + 1 * 100) / (1*100)).toString();
         var lowEnd = '$' + (Math.floor(Math.random() * (100 * 100 - 1 * 100) + 1 * 100) / (1*100)).toString();
         info.company = faker.company.companyName();
