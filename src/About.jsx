@@ -49,8 +49,7 @@ class About extends React.Component {
 
     componentDidMount() {
         this.changeColor();
-        axios.get('/about/1').then((response) => {
-            console.log(response.data)
+        axios.get('/about/getData/1').then((response) => {
             response.data.adjectives = JSON.parse(response.data.adjectives);
             const someData = {};
 
