@@ -1,7 +1,7 @@
-const db = require('./index.js');
 const Company = require('./Company.js');
 const faker = require('faker');
 const fs = require('fs');
+const path = require('path');
 
 var sampleAdjectives = function () {
     var words = [];
@@ -16,7 +16,7 @@ var sampleAdjectives = function () {
 const companies = [];
 
 const loadCompanies = new Promise((resolve, reject) => {
-	fs.readFile('/Users/kellywillard/hrsf124/Robinhood/RobinHood-About/database/Companies.csv', 'utf8', function (err, data) {
+	fs.readFile(path.resolve(__dirname, 'Companies.csv'), 'utf8', function (err, data) {
 		if (err) throw err
 		let dataArray = data.split(/\r?\n/);
 		for (let i = 1; i < dataArray.length; i++) {

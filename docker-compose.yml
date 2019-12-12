@@ -1,0 +1,27 @@
+# version: '3'
+# services:
+#   web:
+#     image: docker-about-component
+#     build: .
+#     command: node ./server/index.js
+#     ports: 
+#       - "3003:3003"
+#     volumes: 
+#       - /usr/src/app
+#       - /usr/src/app/node_modules
+#     depends_on:
+#       - mongo_seeding
+
+  version: "3"
+  services:
+    database:
+      image: mongo
+    mongo-seed:
+      build: .
+      command: npm run db:setup
+    webserver:
+      build: .
+      ports:
+        - "3003:3003"
+      
+ 
