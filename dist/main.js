@@ -2,6 +2,7 @@
 padding-top: 75px;
 padding-left: 36px;
 padding-right: 36px;
+width: 676px;
 background: #1B1B1D;
 display: grid;
 `,u.CollectionsTitle=l.a.div`
@@ -34,6 +35,7 @@ font-size: 13px;
 `;var c=u;function s(e){return(s="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function f(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function d(e){return(d=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function p(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function h(e,t){return(h=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var m=function(e){function t(e){var n,r,o;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),r=this,(n=!(o=d(t).call(this,e))||"object"!==s(o)&&"function"!=typeof o?p(r):o).mouseOn=n.mouseOn.bind(p(n)),n.mouseOff=n.mouseOff.bind(p(n)),n}var n,r,a;return function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&h(e,t)}(t,e),n=t,(r=[{key:"mouseOn",value:function(e){e.target.style.cursor="pointer",e.target.style.color="black","#21CE99"===this.props.color?e.target.style.background="#21CE99":e.target.style.background="#F45531"}},{key:"mouseOff",value:function(e){e.target.style.color=this.props.color,e.target.style.background=this.props.container}},{key:"collectionList",value:function(){var e=this;if(this.props.adj)return this.props.adj.map((function(t){return o.a.createElement(c.Collection,{style:{background:e.props.container,color:e.props.color},onMouseOver:e.mouseOn,onMouseOut:e.mouseOff},t)}))}},{key:"render",value:function(){return o.a.createElement(c.Wrapper,null,o.a.createElement(c.CollectionsTitle,null,"Collections"),o.a.createElement(c.LineBreak,null),o.a.createElement(c.CollectionContainer,null,this.collectionList()))}}])&&f(n.prototype,r),a&&f(n,a),t}(o.a.Component),y=n(149),v=n.n(y);const g={};g.Wrapper=l.a.div`
 padding-left: 36px;
 padding-right: 36px;
+width: 676px;
 background: #1B1B1D;
 display: grid;
 `,g.GridContainer=l.a.div`

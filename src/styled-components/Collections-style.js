@@ -6,6 +6,7 @@ CollectionStyle.Wrapper = styled.div`
 padding-top: 75px;
 padding-left: 36px;
 padding-right: 36px;
+width: 676px;
 background: #1B1B1D;
 display: grid;
 `;
