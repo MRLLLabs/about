@@ -3,7 +3,9 @@ import styled from 'styled-components'
 const CollectionStyle = {};
 
 CollectionStyle.Wrapper = styled.div`
-padding: 4em;
+padding-top: 75px;
+padding-left: 36px;
+padding-right: 36px;
 background: #1B1B1D;
 display: grid;
 `;

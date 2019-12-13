@@ -3,7 +3,8 @@ import styled from 'styled-components'
 const AboutStyle = {}
 
 AboutStyle.Wrapper = styled.div`
-padding: 4em;
+padding-left: 36px;
+padding-right: 36px;
 background: #1B1B1D;
 display: grid;
 `;
