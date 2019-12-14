@@ -5,7 +5,17 @@
     <link rel="stylesheet" type="text/css" href="regfont/stylesheet.css">
     <title>Getting Started</title>
   </head>
-  <body style="background: #1B1B1D">
+  <body id="body">
+      <script>function marketOpen() {
+          const d = new Date();
+          const totalMinutes = (d.getHours() * 60) + d.getMinutes();
+          const colors = {};
+          if (totalMinutes < 360 || totalMinutes >= 900) {
+            document.getElementById('body').style.background = "#1B1B1D"
+          } else {
+            document.getElementById('body').style.background = "white"
+          }
+        }</script>
     <div id="About"></div>
     <script src="main.js"></script>
   </body>
