@@ -22,7 +22,7 @@ app.post('/api/companies', (req, res) => {
   });
 });
 
-app.get('/api/companies', (res) => {
+app.get('/api/companies', (req, res) => {
   Company.find((err, companies) => {
     if (err) {
       return res.status(404).send(err);
