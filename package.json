@@ -1,12 +1,12 @@
 {
-  "name": "FECRobinhood-Data-and-Collections",
+  "name": "robinhood-about",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest --collectCoverage",
     "build": "npx webpack --mode=production",
-    "start": "npx nodemon ./server/index.js",
+    "start": "node ./server/index.js",
     "db:setup": "node database/seed.js"
   },
   "keywords": [],
